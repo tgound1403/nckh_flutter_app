@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1075184378512",
+    "project_id": "plant-disease-307e6",
+    "storage_bucket": "plant-disease-307e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075184378512:android:7b85850399afe391796e15",
+        "android_client_info": {
+          "package_name": "com.example.plant_disease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075184378512-e15osli8tgbitf8eipocopjd8grnipg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtoXi030Xto4RsW8XrbP1DiU5pxKhKZ08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075184378512-e15osli8tgbitf8eipocopjd8grnipg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

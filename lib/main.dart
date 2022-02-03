@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+// App screen
 import 'screens/welcome_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/registration_screen.dart';
+import 'screens/function_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/user_screen.dart';
-// import 'package:firebase_core/firebase_core.dart';
+// Firebase use for login and register
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
-  runApp(PlantDisease());}
+  runApp(PlantDisease());
+}
 
 class PlantDisease extends StatelessWidget {
   @override
@@ -22,7 +25,7 @@ class PlantDisease extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         HomeScreen.id: (context) => HomeScreen(),
-        UserScreen.id: (context) => UserScreen()
+        FunctionScreen.id: (context) => FunctionScreen()
       },
     );
   }

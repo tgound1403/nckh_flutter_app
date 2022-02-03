@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plant_disease/components/rounded_button.dart';
 import 'package:plant_disease/constant.dart';
+import 'function_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
@@ -66,10 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(fontSize: 14, fontFamily: 'Poppins')),
                 ),
                 RoundedButton(
+                    corner: BorderRadius.circular(30.0),
                     color: Colors.blueAccent,
                     textColor: Colors.white,
                     title: 'BẮT ĐẦU',
-                    function: () {}),
+                    function: () {
+                      Navigator.pushNamed(context, FunctionScreen.id);
+                    }),
                 const SizedBox(
                   height: 10,
                 ),
