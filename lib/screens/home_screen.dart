@@ -6,6 +6,7 @@ import 'function_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -53,17 +54,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w900,
-                        color: Colors.blue[900])),
+                        color: Colors.blue[900],
+                        // fontFamily: 'Poppins'
+                    )),
                 Image.asset(
                   'lib/images/Home_page.png',
                   fit: BoxFit.fill,
                 ),
+                const SizedBox(height: 20),
                 const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
                   child: Text(
                       'Phân tích nhanh bệnh lý của cây trồng, tìm ra giải pháp điều trị phù hợp để tăng năng suất cho cây.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, fontFamily: 'Poppins')),
+                      style:
+                          TextStyle(
+                              fontSize: 14,
+                          )
+                  ),
                 ),
                 RoundedButton(
                     corner: BorderRadius.circular(30.0),
