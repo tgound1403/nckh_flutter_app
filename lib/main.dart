@@ -19,6 +19,7 @@ class PlantDisease extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Poppins'),
       initialRoute: WelcomeScreen.id,
       routes: {
         RegistrationScreen.id: (context) => RegistrationScreen(),

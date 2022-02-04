@@ -48,24 +48,27 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text(
-                  'PLANT',
-                  style: TextStyle(
-                    color: mySecondaryColor,
-                    fontSize: 36,
-                    fontWeight: FontWeight.w900,
+              Flexible(
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text(
+                    'PLANT',
+                    style: TextStyle(
+                      color: mySecondaryColor,
+                      fontSize: 36,
+                      fontWeight: FontWeight.w900,
+                    ),
                   ),
-                ),
-                const Text(
-                  ' DISEASE',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                    fontWeight: FontWeight.w900,
-                  ),
-                )
-              ]),
+                  const Text(
+                    ' DISEASE',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 36,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  )
+                ]),
+              ),
               const SizedBox(
                 height: 48,
               ),
