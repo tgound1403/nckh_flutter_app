@@ -7,6 +7,8 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id = 'registration_screen';
+
+  const RegistrationScreen({Key? key}) : super(key: key);
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }
@@ -30,9 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       if (user != null) {
         loggedInUser = user;
       }
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 
   register() async {
@@ -44,7 +44,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         showSpinner = false;
       });
     } on FirebaseAuthException catch (e) {
-      print(e);
+      // print(e);
       setState(() {
         showSpinner = false;
         error = '${e.message}';
@@ -179,14 +179,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       Text(
                         error,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.red, fontSize: 18),
+                        style: const TextStyle(color: Colors.red, fontSize: 18),
                       ),
                       const SizedBox(
                         height: 12,
                       ),
                       Row(
                         children: [
-                          SizedBox(width: 94),
+                          const SizedBox(width: 94),
                           RoundedButton(
                               corner: BorderRadius.circular(10.0),
                               color: myAccentColor,

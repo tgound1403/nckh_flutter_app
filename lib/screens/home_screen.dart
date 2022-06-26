@@ -7,6 +7,8 @@ import 'function_screen.dart';
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
 
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -52,10 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text('SINH TRẮC BỆNH LÝ CÂY TRỒNG',
                     style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.blue[900],
-                        // fontFamily: 'Poppins'
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.blue[900],
+                      // fontFamily: 'Poppins'
                     )),
                 Image.asset(
                   'lib/images/Home_page.png',
@@ -67,11 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                       'Phân tích nhanh bệnh lý của cây trồng, tìm ra giải pháp điều trị phù hợp để tăng năng suất cho cây.',
                       textAlign: TextAlign.center,
-                      style:
-                          TextStyle(
-                              fontSize: 14,
-                          )
-                  ),
+                      style: TextStyle(
+                        fontSize: 14,
+                      )),
                 ),
                 RoundedButton(
                     corner: BorderRadius.circular(30.0),
@@ -85,14 +85,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 10,
                 ),
                 Text(
-                  '"Em có biết tại sao lá cây lại màu xanh"',
+                  '"Nếu ai cũng có thể trồng một cái cây trong cuộc đời thì nỗi cô đơn chỉ còn là đứa trẻ của niềm vui"',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.blue[900]),
                 ),
                 Text(
-                  '-Câu châm ngôn gì đó-',
+                  '-Trồng một cái cây trong cuộc đời-',
                   style: TextStyle(fontSize: 16, color: Colors.blue[900]),
                 ),
                 const SizedBox(
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 10,
                             ),
                             Text(
-                              'Sử dụng công nghệ gì đó để tìm ra loại bệnh mà cây đang mắc phải...',
+                              'Sử dụng trí tuệ nhân tạo để dự đoán bệnh cho cây thông qua hình ảnh bạn chụp',
                             )
                           ],
                         ),
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             Text(
-                              'Dự đoán',
+                              'Diễn đàn',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 10,
                             ),
                             Text(
-                              'Sử dụng công nghệ gì đó để tìm ra loại bệnh mà cây đang mắc phải...',
+                              'Nơi bạn có thể giao lưu hỏi đáp với những người khác có chung tình yêu với sức khỏe cây trồng',
                             )
                           ],
                         ),
@@ -165,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             Text(
-                              'Dự đoán',
+                              'Đề xuất',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 10,
                             ),
                             Text(
-                              'Sử dụng công nghệ gì đó để tìm ra loại bệnh mà cây đang mắc phải...',
+                              'Sử dụng trí tuệ nhân tạo để đề xuất cây trồng hoặc phân bón phù hợp cho đất trồng của bạn',
                             )
                           ],
                         ),

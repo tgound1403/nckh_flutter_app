@@ -6,6 +6,8 @@ import 'package:plant_disease/constant.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
+
+  const WelcomeScreen({Key? key}) : super(key: key);
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -26,7 +28,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 'PLANT',
                 style: TextStyle(
                   color: mySecondaryColor,
-                  fontSize: 36,
+                  fontSize: 42,
                   fontWeight: FontWeight.w900,
                 ),
               ),
@@ -34,7 +36,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ' DISEASE',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 36,
+                  fontSize: 42,
                   fontWeight: FontWeight.w900,
                 ),
               )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_disease/constant.dart';
 // App screen
 import 'screens/welcome_screen.dart';
 import 'screens/login_screen.dart';
@@ -12,21 +13,24 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runApp(PlantDisease());
+  runApp(const PlantDisease());
 }
 
 class PlantDisease extends StatelessWidget {
+  const PlantDisease({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Poppins'),
-      initialRoute: WelcomeScreen.id,
+      theme: ThemeData(
+          scaffoldBackgroundColor: myAccentColor, fontFamily: 'Poppins'),
+      initialRoute: FunctionScreen.id,
       routes: {
-        RegistrationScreen.id: (context) => RegistrationScreen(),
-        LoginScreen.id: (context) => LoginScreen(),
-        WelcomeScreen.id: (context) => WelcomeScreen(),
-        HomeScreen.id: (context) => HomeScreen(),
-        FunctionScreen.id: (context) => FunctionScreen()
+        RegistrationScreen.id: (context) => const RegistrationScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        FunctionScreen.id: (context) => const FunctionScreen(),
+        HomeScreen.id: (context) => const HomeScreen()
       },
     );
   }

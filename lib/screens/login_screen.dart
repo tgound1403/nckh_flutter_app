@@ -7,12 +7,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
+
+  const LoginScreen({Key? key}) : super(key: key);
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   late bool showSpinner = false;
+
   String email = '';
   String password = '';
   String error = '';
@@ -118,12 +121,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           textAlign: TextAlign.center,
                           decoration: kTextFieldDecoration),
                       const SizedBox(
-                        height: 24,
+                        height: 26,
                       ),
                       Text(
                         error,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.red, fontSize: 18),
+                        style: const TextStyle(color: Colors.red, fontSize: 18),
                       ),
                       const SizedBox(
                         height: 12,

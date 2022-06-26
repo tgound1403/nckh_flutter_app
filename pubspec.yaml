@@ -23,6 +23,9 @@ dependencies:
   font_awesome_flutter: ^9.2.0
   image_picker: ^0.8.4+5
   modal_progress_hud_nsn: ^0.1.0-nullsafety-1
+  http: ^0.13.4
+  prefs: ^3.4.0+01
+
 
 dev_dependencies:
   flutter_test:
