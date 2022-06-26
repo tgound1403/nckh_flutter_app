@@ -201,7 +201,7 @@ class _FunctionScreenState extends State<FunctionScreen> {
                   InfoCard(
                       title: 'Phương thức điều trị',
                       content: predictionData['treatment']),
-                  // InfoCard('Cách điều trị các bệnh tương tự', predictionData['rc'])
+                  InfoCard(title: 'Cách điều trị các bệnh tương tự', content: predictionData['rc'].join("\n"))
                 ],
               )
             else if (imageToPredict == null)
