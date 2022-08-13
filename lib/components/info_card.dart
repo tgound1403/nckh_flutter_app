@@ -22,12 +22,12 @@ class InfoCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(content, textAlign: TextAlign.justify)
+                Text(content, textAlign: TextAlign.justify, style: TextStyle(fontSize: 16))
               ],
             ),
           )),

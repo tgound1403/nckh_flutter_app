@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'package:prefs/prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //File
 import 'dart:async';
 import 'dart:io';
+// import 'dart:ui';
 //Screen and components
 import 'package:plant_disease/constant.dart';
 import 'package:plant_disease/components/rounded_button.dart';
@@ -29,17 +29,13 @@ class _FunctionScreenState extends State<FunctionScreen> {
   XFile? cameraFile, galleryFile;
   File? imageToPredict;
   var predictionData;
+  bool isLoading = false;
 
   selectFromCamera() async {
-    if (cameraFile != null) {
-      cameraFile = await _picker.pickImage(
-        source: ImageSource.camera,
-        maxHeight: 50.0,
-        maxWidth: 50.0,
-      );
-      print(File(cameraFile!.path));
-      // imageToPredict = cameraFile;
-      imageToPredict = File(cameraFile!.path);
+    final image =
+    await ImagePicker.platform.pickImage(source: ImageSource.camera);
+    if (image != null) {
+      imageToPredict = File(image.path);
     }
     setState(() {});
   }
@@ -64,7 +60,6 @@ class _FunctionScreenState extends State<FunctionScreen> {
     var res = await request.send();
     var response = await http.Response.fromStream(res);
     predictionData = json.decode(response.body);
-    debugPrint('returnData: $predictionData');
     return response;
   }
 
@@ -100,10 +95,10 @@ class _FunctionScreenState extends State<FunctionScreen> {
       body: ListView(
         children: [
           Column(children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Text('DỰ ĐOÁN BỆNH CHO CÂY ',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.w900,
                     color: Colors.blue[900])),
             Image.asset(
@@ -111,17 +106,14 @@ class _FunctionScreenState extends State<FunctionScreen> {
               fit: BoxFit.fill,
             ),
             const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-              child: Text('Chọn ảnh để hệ thống dự đoán bệnh cho cây ',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14, fontFamily: 'Poppins')),
-            ),
+            const Text('Chọn hoặc chụp ảnh để hệ thống dự đoán ',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontFamily: 'Poppins')),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
                   child: Material(
                     elevation: 5.0,
                     color: Colors.white,
@@ -133,11 +125,11 @@ class _FunctionScreenState extends State<FunctionScreen> {
                       },
                       minWidth: 240.0,
                       height: 42.0,
-                      child: const Text('Chọn file',
+                      child: Text( imageToPredict == null ? 'Chọn ảnh' : 'Chọn ảnh khác',
                           textAlign: TextAlign.start,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
-                            color: Colors.black12,
+                            color: Colors.black26,
                           )),
                     ),
                   ),
@@ -145,7 +137,7 @@ class _FunctionScreenState extends State<FunctionScreen> {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Material(
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
                     elevation: 5,
                     child: MaterialButton(
                       onPressed: selectFromCamera,
@@ -161,55 +153,82 @@ class _FunctionScreenState extends State<FunctionScreen> {
               ],
             ),
             if (imageToPredict == null)
-              const Text('Please add or take a picture')
+              const Text('')
             else
-              SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Image.file(File(imageToPredict!.path))),
-            RoundedButton(
+              Material (
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                elevation: 5,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Image.file(File(imageToPredict!.path))),),
+            !isLoading ? RoundedButton(
                 corner: BorderRadius.circular(30.0),
                 color: Colors.blueAccent,
                 textColor: Colors.white,
                 title: 'BẮT ĐẦU',
                 function: () async {
+                  setState(() {
+                    predictionData = null;
+                    isLoading = true;
+                  });
                   final res = await getPlantPrediction(
                       File(imageToPredict!.path),
-                      "https://8acb-171-244-185-10.ap.ngrok.io/predict_image");
+                      "https://lobster-app-rken7.ondigitalocean.app/predict_image");
                   if (res.body.isNotEmpty) {
-                    debugPrint(res.body);
-                    var val = json.decode(res.body);
-                    debugPrint("val: $val");
-                    //  Display Result on App After Predict on Server
+                    setState(() {
+                      isLoading = false;
+                    });
                   } else {
                     debugPrint("FAILED");
                   }
-                }),
-            if (predictionData != null)
+                }) : const SizedBox(height: 20),
+            if (predictionData != null && imageToPredict != null)
               Column(
                 children: [
                   Text(
                     predictionData["name"],
-                    style: const TextStyle(
-                        fontSize: 16),
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue[900]),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
+                  if (predictionData['symptom'] != "")
                   InfoCard(
                       title: 'Các triệu chứng khi cây nhiễm bệnh',
                       content: predictionData['symptom']),
-                  InfoCard(
+                  if (predictionData['treatment'] != "")
+                    InfoCard(
                       title: 'Phương thức điều trị',
                       content: predictionData['treatment']),
-                  InfoCard(title: 'Cách điều trị các bệnh tương tự', content: predictionData['rc'].join("\n"))
+                  if (predictionData['rc'] != "")
+                    InfoCard(
+                      title: 'Cách điều trị các bệnh tương tự',
+                      content: predictionData['rc'].join("\n"))
                 ],
               )
-            else if (imageToPredict == null)
+            else if (predictionData == null && imageToPredict == null)
               const Text('')
-            else if (imageToPredict != null)
-              const Text('Ready to predict')
+            else if (predictionData == null && imageToPredict != null)
+              isLoading
+                  ? Column(
+                      children: [
+                        const Text('Đang dự đoán, vui lòng chờ...',
+                            style: TextStyle(fontSize: 16)),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const CircularProgressIndicator(strokeWidth: 5.0),
+                        predictionData != null ? const SizedBox(height: 0) : const SizedBox(height: 20)
+                      ],
+                    )
+                  : const Text('Sẵn sàng để dự đoán',
+                      style: TextStyle(fontSize: 16))
             else
-              const Text('Failed to predict please try again')
+              const Text('Đã có lỗi xảy ra, vui lòng thử lại',
+                  style: TextStyle(fontSize: 16))
           ]),
         ],
       ),

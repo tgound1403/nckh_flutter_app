@@ -24,7 +24,7 @@ class PlantDisease extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           scaffoldBackgroundColor: myAccentColor, fontFamily: 'Poppins'),
-      initialRoute: FunctionScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         RegistrationScreen.id: (context) => const RegistrationScreen(),
         LoginScreen.id: (context) => const LoginScreen(),

@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: myAccentColor,
       appBar: AppBar(
-        // elevation: 5,
+        elevation: 5,
         backgroundColor: myAccentColor,
         title: Row(children: [
           const SizedBox(
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text('SINH TRẮC BỆNH LÝ CÂY TRỒNG',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.w900,
                       color: Colors.blue[900],
                       // fontFamily: 'Poppins'
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Phân tích nhanh bệnh lý của cây trồng, tìm ra giải pháp điều trị phù hợp để tăng năng suất cho cây.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 16,
                       )),
                 ),
                 RoundedButton(
@@ -86,14 +86,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   '"Nếu ai cũng có thể trồng một cái cây trong cuộc đời thì nỗi cô đơn chỉ còn là đứa trẻ của niềm vui"',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.blue[900]),
                 ),
                 Text(
                   '-Trồng một cái cây trong cuộc đời-',
-                  style: TextStyle(fontSize: 16, color: Colors.blue[900]),
+                  style: TextStyle(fontSize: 14, color: Colors.blue[900]),
                 ),
                 const SizedBox(
                   height: 20,
@@ -181,66 +182,67 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('ABOUT US',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Text(
-                        'Our mission',
-                      ),
-                      Text(
-                        'Our team',
-                      ),
-                      Text(
-                        'Corporate Sponsor',
-                      ),
-                      Text(
-                        'Financial',
-                      ),
-                      Text(
-                        'Media Center',
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('ABOUT US',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Text(
-                        'Our mission',
-                      ),
-                      Text(
-                        'Our team',
-                      ),
-                      Text(
-                        'Corporate Sponsor',
-                      ),
-                      Text(
-                        'Financial',
-                      ),
-                      Text(
-                        'Media Center',
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.all(28.0),
+            //       child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: const [
+            //           Text('ABOUT US',
+            //               style: TextStyle(
+            //                 fontSize: 20,
+            //                 fontWeight: FontWeight.bold,
+            //               )),
+            //           Text(
+            //             'Our mission',
+            //           ),
+            //           Text(
+            //             'Our team',
+            //           ),
+            //           Text(
+            //             'Corporate Sponsor',
+            //           ),
+            //           Text(
+            //             'Financial',
+            //           ),
+            //           Text(
+            //             'Media Center',
+            //           )
+            //         ],
+            //       ),
+            //     ),
+            //     Padding(
+            //       padding: const EdgeInsets.all(28.0),
+            //       child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: const [
+            //           Text('ABOUT US',
+            //               style: TextStyle(
+            //                 fontSize: 20,
+            //                 fontWeight: FontWeight.bold,
+            //               )),
+            //           Text(
+            //             'Our mission',
+            //           ),
+            //           Text(
+            //             'Our team',
+            //           ),
+            //           Text(
+            //             'Corporate Sponsor',
+            //           ),
+            //           Text(
+            //             'Financial',
+            //           ),
+            //           Text(
+            //             'Media Center',
+            //           )
+            //         ],
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            const SizedBox(height:20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
